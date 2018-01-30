@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+
+//Klasa generująca bazę danych haseł, czytając z pliku
+
 public class CwDB {
     protected LinkedList<Entry> dict = new LinkedList<>();
 
@@ -38,6 +41,7 @@ public class CwDB {
             e.printStackTrace();
         }
     }
+
 
     public void add(String word, String clue){
         Entry tmp = new Entry(word, clue);

@@ -11,10 +11,14 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//Klasa "generująca" skomplikowaną krzyżówkę
+//Używana w klasie Crossword, w metodach generate oraz addCwEntry
+
 public class Advanced extends Strategy {
 
     int size = 10;
 
+    //Funkcja dodająca znalezione hasło CwEntry cw, do Board b
     @Override
     public void updateBoard(Board b, CwEntry cw){
         if(cw.getDir().equals(CwEntry.Direction.VERT)){
@@ -47,6 +51,8 @@ public class Advanced extends Strategy {
     }
 
 
+    //funkcja szukająca kolejnego hasła do krzyżówki (kolejne hasła są dodawane na przemian pionowo i poziomo)
+    //generuje przypadkową długość hasła równą random_length, a następnie próbuje znaleźć dopasowanie w zadanym Board na podstawie regexu
     @Override
     public CwEntry findEntry(Crossword cw){
         size = cw.getSize();
@@ -163,7 +169,7 @@ public class Advanced extends Strategy {
 
 
 
-
+    //funkcja pozwalająca uaktualnić dostępność pól, bo dodaniu hasła do krzyżówki
     public void updateAvailability(int from_x, int from_y, int length, CwEntry.Direction d, Board b){
         int fromy = from_y;
         int fromx = from_x;

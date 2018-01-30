@@ -8,6 +8,10 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//Rozszerzenie bazy haseł CwDB.
+//Pozwala na znalezienie wszystkich haseł (lub jednego hasła) pasujących do zadanego patternu/długości
+//Dodatkowo, przysłania metodę "add" z klasy bazowej - w tej wersji, dodaje hasła alfabetycznie (możliwość optymalizacji!)
+
 public class InteliCwDB extends CwDB {
     public InteliCwDB(String filename){
         super(filename);
@@ -88,8 +92,8 @@ public class InteliCwDB extends CwDB {
         if(!added){
             dict.add(entry);
         }
-
     }
+
 
     public boolean compare(String word1, String word2){ //retruns true if word1 should appear first
         String w1 = word1.toLowerCase();

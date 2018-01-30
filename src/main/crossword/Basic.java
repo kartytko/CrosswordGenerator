@@ -9,6 +9,9 @@ import main.board.CwEntry;
 import java.util.LinkedList;
 import java.util.Random;
 
+//Klasa "generująca" podstawową krzyżówkę
+//Używana w klasie Crossword, w metodach generate oraz addCwEntry
+
 public class Basic extends Strategy {
 
     private CwEntry main_entry;
@@ -36,6 +39,7 @@ public class Basic extends Strategy {
         main_entry.setDir(CwEntry.Direction.VERT);
     }
 
+    //Funkcja dodająca znalezione hasło CwEntry cw, do Board b
     @Override
     public void updateBoard(Board b, CwEntry e) {
 
@@ -80,6 +84,8 @@ public class Basic extends Strategy {
         }
     }
 
+    //Funkcja znajdująca kolejne hasła do krzyżówki - przy pierwszym wywołaniu dodaje hasło pionowe, a następnie dodaje hasła poziome tak,
+    //aby pierwsze litery poziomych haseł nachodziły się z głównym, pionowym hasłem
     @Override
     public CwEntry findEntry(Crossword cw) {
         size  = cw.getSize();

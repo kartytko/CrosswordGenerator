@@ -6,6 +6,8 @@ import javafx.scene.text.Text;
 import main.board.BoardCell;
 import main.board.CwEntry;
 
+//Klasa reprezetująca graficznie jedną komórkę krzyżówki
+
 public class Cell {
 
     public Rectangle rectangle;

@@ -9,6 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
+//Klasa pozwalająca na zapisanie krzyżówki do pliku
+//Serializuje dane z krzyżówki - do pliku dodaje informacje o każdym haśle (położenie na planszy, hasło, podpowiedź, informację o tym, czy hasło jest pionowe/poziome)
+
 public class SaveCrossword implements Writer{
 
     private String path = "";

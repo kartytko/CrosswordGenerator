@@ -4,14 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.print.PrinterJob;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -28,6 +31,11 @@ import main.operations.SaveCrossword;
 import javax.swing.*;
 import java.io.FileInputStream;
 import java.util.LinkedList;
+
+
+
+//Klasa odpowiedzialna za wyświetlenie krzyżówki - składa się z trzech scen: scena główna (startowa),
+//scena Advance (gdzie generowana jest skomplikowana krzyżówka) oraz scena Basic (odpowiadająca za wyświetlenie podstawowej wersji krzyżówki)
 
 public class View {
 
@@ -255,6 +263,27 @@ public class View {
             }
         });
 
+
+
+        Button print = new Button();
+        print.setText("Print");
+        print.setLayoutX(1125);
+        print.setLayoutY(650);
+        print.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                PrinterJob job = PrinterJob.createPrinterJob();
+                if(job != null){
+                    boolean success = job.printPage(root);
+                    if(success){
+                        job.endJob();
+                    }
+                }
+            }
+        });
+
+
+        root.getChildren().add(print);
         root.getChildren().add(resolve);
         root.getChildren().add(back);
         root.getChildren().add(generate);
@@ -404,11 +433,38 @@ public class View {
             }
         });
 
+
+        Button print = new Button();
+        print.setText("Print");
+        print.setLayoutX(1125);
+        print.setLayoutY(650);
+        print.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                PrinterJob job = PrinterJob.createPrinterJob();
+                if(job != null){
+                    boolean success = job.printPage(root);
+                    if(success){
+                        job.endJob();
+                    }
+                }
+            }
+        });
+
+
+        root.getChildren().add(print);
         root.getChildren().add(resolve);
         root.getChildren().add(back);
         root.getChildren().add(generate);
+        //WritableImage image = root.snapshot(new SnapshotParameters(), null);
         Scene advanced = new Scene(root, 1200, 800);
         stage.setScene(advanced);
         stage.show();
     }
+
+
+
+
+
+
 }

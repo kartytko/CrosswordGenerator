@@ -8,6 +8,8 @@ import sun.awt.image.ImageWatched;
 
 import java.util.LinkedList;
 
+//Klasa, która pozwala wyświetlić podpowiedzi do haseł
+
 public class NumbersClue {
 
     public LinkedList<Text> draw(CwEntry cw, int it){

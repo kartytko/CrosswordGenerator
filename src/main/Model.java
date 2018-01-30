@@ -12,6 +12,9 @@ import javafx.scene.shape.Rectangle;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+
+//Klasa pomagająca "obsłużyć" graficzne generowanie krzyżówki
+
 public class Model {
 
     int size=10;

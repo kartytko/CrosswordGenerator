@@ -1,5 +1,7 @@
 package main.dictionary;
 
+//Klasa reprezentująca pojedyncze hasło krzyżówki. Dziedziczy po niej klasa CwEntry
+
 public class Entry {
     private String word;
     private String clue;

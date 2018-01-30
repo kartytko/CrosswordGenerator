@@ -1,5 +1,8 @@
 package main.board;
 
+//Klasa pomocnicza określająca, czy dana komórka może być początkiem/środkiem/końcem hasła
+//Klasa używana w BoardCell
+
 public class State{
 
     private boolean start = true;

@@ -1,5 +1,9 @@
 package main.board;
 
+//Klasa reprezentująca pojedynczą komórkę w krzyżówce
+//Zawiera literę, która się w niej znajduje oraz "dostępność horyzontalną/wertykalną" - tj. czy dana komórka może być
+//początkiem/środkiem/końcem słowa ułożonego pionowo/poziomo
+
 public class BoardCell{
 
     private String content = "";

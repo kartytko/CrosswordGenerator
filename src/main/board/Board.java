@@ -2,6 +2,9 @@ package main.board;
 
 import java.util.LinkedList;
 
+//Jedna z głównych klas projektu.
+//Przechowuje informacje o zawartości poszczególnych komórek krzyżówki
+
 public class Board implements Cloneable{
     private BoardCell[][] board;
 
@@ -30,6 +33,10 @@ public class Board implements Cloneable{
         board[x][y] = c;
     }
 
+
+
+    //Funkcja pobierająca wszystkie komórki, których "stan dostępności" (BoardCellAvailibity) pozwala na rozpoczęcie hasła od tego miejsca
+    //Funkcja nieużywana - może pomóc w optymalizacji w trakcie szukania kolejnych haseł (klasa Advanced oraz klasa Basic)
     public LinkedList<BoardCell> getStartCells(){
         LinkedList<BoardCell> start_cells = new LinkedList<>();
 
@@ -43,6 +50,9 @@ public class Board implements Cloneable{
         return start_cells;
     }
 
+
+
+    //Funkcja pozwala na stworzenie patternu do Regexu na podstawie zawartośc komórek od A=(fromx, fromy) do B=(tox, toy)
     public String createPattern(int fromx, int fromy, int tox, int toy){
         String pattern = "";
 

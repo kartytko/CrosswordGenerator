@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 
-//niedokończone!!!!!!
+//Klasa pozwalająca wyświetlić krzyżówkę wczytaną przez użytkownika
+
 public class DisplayCrossword implements Reader {
     private String path_from;
     public enum strategy{ BASIC, ADVANCED;}

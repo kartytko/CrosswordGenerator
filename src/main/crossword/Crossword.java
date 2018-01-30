@@ -9,6 +9,9 @@ import main.board.CwEntry;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+//Jedna z głównych klas projektu
+//Przechowuje bazę danych wszystkich dostępnych haseł, planszę b i wszystkie dodane od niej hasła
+//Zawiera ISTOTNE pole cwdb_path, które określa ścieżkę do pliku zawierającego hasła i podpowiedzi
 
 public class Crossword {
     private LinkedList<CwEntry> entries = new LinkedList<>();
@@ -19,9 +22,10 @@ public class Crossword {
     private String cwdb_path="/home/kartytko/Pulpit/projekt/src/main/dictionary/dic.txt";
     private int size = 7;
 
-    public int hori_or_vert_it = 0;     //needed if Strategy s is an istance of Advanced
+    public int hori_or_vert_it = 0;     //needed if Strategy s is an istance of Advanced (zmienna pozwalająca określić, czy powinno zostać dodane hasło pionowe, czy poziome, przy wyborze strategii zaawansowanej)
 
 
+    //konstruktory
     public Crossword(int size, String path){
         cwdb_path = path;
         cwdb = new InteliCwDB(cwdb_path);
@@ -58,16 +62,21 @@ public class Crossword {
         this.cwdb = cwdb;
     }
 
+    //funkcja sprawdza, czy dane hasło zostało już dodane do krzyżówki
     public boolean contains(String word){           //czy lista entires zawiera word?
         return entries.contains(word);
     }
 
+
+    //dodawanie znalezionego hasła
     public final void addCwEntry(CwEntry cwe, Strategy s){
         entries.add(cwe);
         s.updateBoard(b, cwe);
         if(s instanceof Advanced){hori_or_vert_it++;}
     }
 
+
+    //generowanie krzyżówki podstawowej oraz zaawansowanej w zależności od wyboru strategii
     public final void generate (Strategy s){
         if(s instanceof Advanced){
            setAvailability();
@@ -83,6 +92,9 @@ public class Crossword {
         }
     }
 
+
+    //Funkcja wywowływana przy wyborze strategii zaawansowanej przy generowaniu krzyżówki
+    //ustala dostępność poszczególnych komórek na pustej planszy
     public void setAvailability(){
         for(int i=0; i<size; i++){
             for(int j=0; j<size; j++) {
